@@ -5,13 +5,8 @@ from info import create_app,db
 
 app = create_app('development')
 manager = Manager(app)
-Migrate(app,db)
-manager.add_command('db',MigrateCommand)
-
-
-@app.route('/')
-def index():
-    return 'index'
+Migrate(app, db)
+manager.add_command('db', MigrateCommand)
 
 
 if __name__ == '__main__':

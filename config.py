@@ -1,5 +1,5 @@
 import redis
-
+import logging
 
 class Config(object):
     """工程配置信息"""
@@ -19,7 +19,7 @@ class Config(object):
     SESSION_USE_SIGNER = True
     SESSION_REDIS = redis.StrictRedis(host=REDIS_HOST)
     PREMANENT_SESSION_LIFETIME = 86400
-
+    LOG_LEVEL = logging.DEBUG
 
 class DevelopmentConfig(Config):
     """开发模式下的配置"""
@@ -28,7 +28,8 @@ class DevelopmentConfig(Config):
 
 class ProductionConfig(Config):
     """生产环境配置"""
-    pass
+    LOG_LEVEL = logging.ERROR
+
 
 
 config = {
