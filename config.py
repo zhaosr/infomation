@@ -19,3 +19,19 @@ class Config(object):
     SESSION_USE_SIGNER = True
     SESSION_REDIS = redis.StrictRedis(host=REDIS_HOST)
     PREMANENT_SESSION_LIFETIME = 86400
+
+
+class DevelopmentConfig(Config):
+    """开发模式下的配置"""
+    pass
+
+
+class ProductionConfig(Config):
+    """生产环境配置"""
+    pass
+
+
+config = {
+   "development":DevelopmentConfig,
+    "production":ProductionConfig
+}
